@@ -92,7 +92,7 @@ int EXPORT nftw(const char* path, int (*fn)(const char*, const struct stat*, int
 
 /*
  *  "TracerPid:\t%d"
- *  cathook
+ *  rosnehook
  */
 EXPORT char* fgets(char* s, int n, FILE* stream)
 {
@@ -111,7 +111,7 @@ EXPORT char* fgets(char* s, int n, FILE* stream)
             std::strcpy(buffer, "TracerPid:\t0\n");
         }
 
-        while (strstr(buffer, "cathook") || strstr(buffer, "libvpcfs.so"))
+        while (strstr(buffer, "rosnehook") || strstr(buffer, "libvpcfs.so"))
         {
             log(LOG_WARNING, "intercepted '%s'", buffer);
             retval = get_fgets()(buffer, n, stream);
